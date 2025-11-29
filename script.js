@@ -208,6 +208,93 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
     
+    // Reel Navigation
+    const reelContainer = document.querySelector('.single-reel-row');
+    const prevButton = document.querySelector('.prev-arrow');
+    const nextButton = document.querySelector('.next-arrow');
+    
+    if (reelContainer && prevButton && nextButton) {
+        const reelItems = document.querySelectorAll('.reel-item');
+        let currentIndex = 0;
+        let isScrolling = false;
+        
+        // Update button states
+        function updateButtons() {
+            prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+            
+            nextButton.style.opacity = currentIndex >= reelItems.length - 1 ? '0.5' : '1';
+            nextButton.style.pointerEvents = currentIndex >= reelItems.length - 1 ? 'none' : 'auto';
+        }
+        
+        // Scroll to reel
+        function scrollToReel(index) {
+            if (index < 0 || index >= reelItems.length || isScrolling) return;
+            
+            isScrolling = true;
+            currentIndex = index;
+            
+            reelItems[index].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            });
+            
+            // Reset scrolling flag after animation
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+            
+            updateButtons();
+        }
+        
+        // Event listeners for navigation buttons
+        prevButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentIndex > 0) {
+                scrollToReel(currentIndex - 1);
+            }
+        });
+        
+        nextButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentIndex < reelItems.length - 1) {
+                scrollToReel(currentIndex + 1);
+            }
+        });
+        
+        // Handle touch events for swiping
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        reelContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        reelContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance to trigger swipe
+            
+            if (touchEndX < touchStartX - swipeThreshold && currentIndex < reelItems.length - 1) {
+                // Swipe left - go to next
+                scrollToReel(currentIndex + 1);
+            } else if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+                // Swipe right - go to previous
+                scrollToReel(currentIndex - 1);
+            }
+        }
+        
+        // Initialize
+        updateButtons();
+        
+        // Handle window resize to update button states
+        window.addEventListener('resize', updateButtons);
+    }
+    
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
         // Mobile Menu Toggle
