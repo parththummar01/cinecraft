@@ -3,32 +3,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const navItems = document.querySelectorAll('.nav-links a');
+    const menuOverlay = document.querySelector('.menu-overlay');
     const navbar = document.querySelector('.navbar');
 
-    // Mobile menu toggle function
+    // Toggle mobile menu
     function toggleMenu() {
-        const isOpen = menuToggle.classList.contains('active');
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
         
-        // Toggle menu state
-        if (!isOpen) {
-            // Open menu
-            menuToggle.classList.add('active');
-            navLinks.classList.add('active');
-            document.body.classList.add('menu-open');
-            
-            // Animate menu items
+        // Animate menu items
+        if (navLinks.classList.contains('active')) {
             navItems.forEach((item, index) => {
                 item.style.transitionDelay = `${index * 0.1}s`;
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
             });
         } else {
-            // Close menu
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            
-            // Reset menu items animation
             navItems.forEach(item => {
                 item.style.transitionDelay = '0s';
                 item.style.opacity = '0';
@@ -41,24 +33,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
     }
-    
+
     // Close menu when clicking on a nav link
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            if (window.innerWidth <= 900) {
+            if (window.innerWidth <= 991) {
                 toggleMenu();
             }
         });
     });
-    
+
     // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const isClickInsideNav = navLinks.contains(e.target) || menuToggle.contains(e.target);
-        if (!isClickInsideNav && navLinks.classList.contains('active')) {
-            toggleMenu();
-        }
-    });
-    
+    menuOverlay.addEventListener('click', toggleMenu);
+
     // Navbar scroll effect
     function handleScroll() {
         if (window.scrollY > 50) {
@@ -67,13 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('scrolled');
         }
     }
-    
+
     // Initial check for navbar
     if (navbar) {
         handleScroll();
         window.addEventListener('scroll', handleScroll);
     }
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -85,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 
                 // Close menu if open
-                if (navLinks.classList.contains('active')) {
+                if (window.innerWidth <= 991 && navLinks.classList.contains('active')) {
                     toggleMenu();
                 }
                 
@@ -99,5 +86,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+    });
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        document.body.classList.add('resize-animation-stopper');
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            document.body.classList.remove('resize-animation-stopper');
+        }, 400);
+        
+        // Reset menu on larger screens
+        if (window.innerWidth > 991) {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            navItems.forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'none';
+            });
+        }
     });
 });
