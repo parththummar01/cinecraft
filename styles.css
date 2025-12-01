@@ -1013,7 +1013,7 @@ ul {
 
 /* ===== SERVICES SECTION ===== */
 .services {
-    padding: 8rem 0;
+    padding: 4rem 1rem;
     background-color: #0a0a0a;
     position: relative;
     overflow: hidden;
@@ -1021,15 +1021,52 @@ ul {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    padding: 2rem 0;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tablet Styles */
+@media (min-width: 600px) {
+    .services {
+        padding: 5rem 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Make combo package span 2 columns on tablet */
+    .service.combo-package {
+        grid-column: span 2;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .services {
+        padding: 8rem 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        padding: 2rem 0;
+    }
+    
+    /* Reset combo package to single column on desktop */
+    .service.combo-package {
+        grid-column: auto;
+    }
 }
 
 .service {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 24px;
-    padding: 2.5rem;
+    padding: 2rem 1.5rem;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1038,6 +1075,19 @@ ul {
     -webkit-backdrop-filter: blur(10px);
     transform-style: preserve-3d;
     perspective: 1000px;
+    margin: 0.5rem;
+    
+    /* Mobile-first approach */
+    width: calc(100% - 1rem);
+    max-width: 100%;
+}
+
+/* Adjust padding for smaller mobile devices */
+@media (max-width: 480px) {
+    .service {
+        padding: 1.5rem 1rem;
+        border-radius: 20px;
+    }
 }
 
 /* Combo Package Special Styling */
@@ -1139,20 +1189,39 @@ ul {
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(0, 196, 204, 0.1) 100%);
-    border-radius: 22px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust icon size for larger screens */
+@media (min-width: 600px) {
+    .service-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.7rem;
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        border-radius: 22px;
+    }
 }
 
 .service-icon::before {
@@ -1186,8 +1255,8 @@ ul {
 }
 
 .service h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
     color: white;
     font-weight: 600;
     background: linear-gradient(135deg, #ffffff 0%, #d1d1d1 100%);
@@ -1197,14 +1266,45 @@ ul {
     color: #ffffff; /* Fallback for older browsers */
     position: relative;
     display: inline-block;
+    line-height: 1.3;
+}
+
+/* Adjust heading size for larger screens */
+@media (min-width: 600px) {
+    .service h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .service h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
 }
 
 .service p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.7;
-    font-size: 1.02rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
     font-weight: 300;
+}
+
+/* Adjust paragraph text for larger screens */
+@media (min-width: 600px) {
+    .service p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+}
+
+@media (min-width: 1024px) {
+    .service p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .service-features {
@@ -1212,8 +1312,8 @@ ul {
 }
 
 .service-features h4 {
-    font-size: 1.1rem;
-    margin: 1.5rem 0 1rem 0;
+    font-size: 1rem;
+    margin: 1.2rem 0 0.8rem 0;
     color: #fff;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1227,10 +1327,52 @@ ul {
     position: absolute;
     left: 0;
     bottom: -5px;
-    width: 40px;
+    width: 30px;
     height: 2px;
     background: linear-gradient(90deg, var(--primary), rgba(0, 196, 204, 0.3));
     border-radius: 2px;
+}
+
+.service-features ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem 0;
+    padding-left: 0;
+}
+
+/* Two columns for tablets and up */
+@media (min-width: 600px) {
+    .service-features ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+}
+
+.service-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (min-width: 600px) {
+    .service-features li {
+        font-size: 0.95rem;
+    }
+}
+
+.service-features li:before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+    top: 3px;
 }
 
 .service-subfeatures {
@@ -1292,28 +1434,54 @@ ul {
 
 .service-details {
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    flex-wrap: wrap;
+}
+
+/* Two columns for tablets and up */
+@media (min-width: 600px) {
+    .service-details {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+    
+    .detail {
+        flex: 1;
+    }
 }
 
 .detail h4 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     color: var(--primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
 
 .detail p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
+    line-height: 1.5;
+}
+
+/* Adjust for larger screens */
+@media (min-width: 1024px) {
+    .detail h4 {
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .detail p {
+        font-size: 1rem;
+    }
 }
 
 .price {
