@@ -121,22 +121,46 @@ a {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
+    z-index: 1003;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    opacity: 0.8;
+}
+
+.menu-toggle:focus {
+    outline: none;
 }
 
 .menu-toggle span {
     display: block;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: var(--light);
     border-radius: 3px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
+    position: relative;
+}
+
+.menu-toggle span:nth-child(1) {
+    transform: translateY(0) rotate(0);
+}
+
+.menu-toggle span:nth-child(2) {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-toggle span:nth-child(3) {
+    transform: translateY(0) rotate(0);
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
+    transform: translateY(10.5px) rotate(45deg);
+    background-color: var(--primary);
 }
 
 .menu-toggle.active span:nth-child(2) {
@@ -145,7 +169,27 @@ a {
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
+    transform: translateY(-10.5px) rotate(-45deg);
+    background-color: var(--primary);
+}
+
+/* Overlay for mobile menu */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 /* Responsive Navigation */
@@ -1208,35 +1252,89 @@ ul {
 /* Tablet Styles */
 @media (min-width: 600px) {
     .services {
-        padding: 5rem 2rem;
+        padding: 4rem 1.5rem;
     }
     
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.8rem;
+    }
+    
+    .service {
+        padding: 2rem 1.5rem;
+    }
+    
+    .service h3 {
+        font-size: 1.5rem;
+    }
+    
+    .service-features ul {
+        grid-template-columns: 1fr;
     }
     
     /* Make combo package span 2 columns on tablet */
     .service.combo-package {
         grid-column: span 2;
     }
+    
+    .service.combo-package .service-features ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .detail {
+        flex: 1 0 calc(50% - 0.5rem);
+    }
 }
 
 /* Desktop Styles */
 @media (min-width: 1024px) {
     .services {
-        padding: 8rem 2rem;
+        padding: 6rem 2rem;
     }
     
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
-        padding: 2rem 0;
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .service {
+        padding: 2.2rem 2rem;
+    }
+    
+    .service h3 {
+        font-size: 1.6rem;
+    }
+    
+    .service p {
+        font-size: 1.05rem;
+    }
+    
+    .service-features ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .service.combo-package .service-features ul {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     /* Reset combo package to single column on desktop */
     .service.combo-package {
         grid-column: auto;
+    }
+    
+    .service-details {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    
+    .detail {
+        flex: 1;
     }
 }
 
@@ -1264,43 +1362,144 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Adjust padding for smaller mobile devices */
-@media (max-width: 600px) {
-    .service {
-        padding: 2rem 1.5rem;
-        border-radius: 18px;
+/* Mobile-first adjustments for service cards */
+@media (max-width: 1024px) {
+    .services {
+        padding: 3rem 1rem;
     }
     
+    .services-grid {
+        gap: 1.5rem;
+        padding: 0.5rem 0;
+    }
+    
+    .service {
+        padding: 1.8rem 1.2rem;
+        margin: 0.5rem 0;
+        width: 100%;
+        border-radius: 16px;
+    }
+    
+    .service h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+    }
+    
+    .service p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Features list adjustments */
+    .service-features {
+        margin: 1.5rem 0;
+        padding: 1rem 1rem 0.5rem;
+        border-radius: 10px;
+    }
+    
+    .service-features ul {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        padding-left: 0.5rem;
+        margin: 0.8rem 0 1.2rem;
+    }
+    
+    .service-features li {
+        font-size: 0.9rem;
+        padding-left: 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .service-features li:before {
+        width: 1.2rem;
+        margin-left: -1.2rem;
+        left: 0.1rem;
+    }
+    
+    /* Service details adjustments */
     .service-details {
+        margin: 1.5rem -0.5rem 0;
+        padding-top: 1.2rem;
         flex-direction: column;
         gap: 1rem;
     }
     
     .detail {
-        width: 100%;
-        max-width: 100%;
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+    
+    .detail h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .detail p {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+    
+    .price {
+        font-size: 1.6rem;
+        margin: 0.5rem 0;
+    }
+    
+    /* Combo package specific */
+    .service.combo-package {
+        padding-top: 3.5rem;
     }
     
     .combo-badge {
-        top: 15px;
-        right: -40px;
-        padding: 5px 35px;
-        font-size: 0.7rem;
+        top: 12px;
+        right: -42px;
+        padding: 4px 30px;
+        font-size: 0.65rem;
+        transform: rotate(45deg) scale(0.9);
+    }
+    
+    .combo-benefits {
+        margin-top: 1.2rem;
+        padding-top: 1.2rem;
+        gap: 0.6rem;
+    }
+    
+    .benefit {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
 }
 
-/* Extra small devices */
-@media (max-width: 400px) {
+/* Adjustments for very small devices */
+@media (max-width: 360px) {
     .service {
-        padding: 1.8rem 1.2rem;
+        padding: 1.5rem 1rem;
     }
     
     .service h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     
-    .service p {
-        font-size: 0.95rem;
+    .service p, .service-features li {
+        font-size: 0.88rem;
+    }
+    
+    .service-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+    }
+    
+    .price {
+        font-size: 1.5rem;
     }
 }
 
@@ -1563,10 +1762,18 @@ ul {
 .service-features ul {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    margin: 1rem 0 1.5rem 0;
-    padding-left: 1.2rem;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.2rem 0;
+    padding-left: 1rem;
+}
+
+/* Two columns for larger screens */
+@media (min-width: 1200px) {
+    .service-features ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
 }
 
 .service-features li {
@@ -1629,8 +1836,8 @@ ul {
 .service-details {
     display: flex;
     justify-content: space-between;
-    margin: 2rem -0.5rem 0;
-    padding: 1.5rem 0.5rem 0;
+    margin: 1.8rem 0 0;
+    padding: 1.5rem 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     gap: 1rem;
     flex-wrap: wrap;
