@@ -103,6 +103,31 @@
       .booking form{order:1}
       nav{flex-wrap:wrap;gap:8px}
       .hero .headline{font-size:28px}
+
+      /* Show hamburger, hide desktop nav */
+      .hamburger{display:block}
+      .nav-links{display:none}
+
+      /* Make sidebar take most of the screen on small devices */
+      .mobile-sidebar{width:80vw;left:-100%}
+      .mobile-sidebar.open{left:0}
+      #sidebarOverlay{display:none}
+    }
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+
+      /* Mobile adjustments */
+      .container{padding:16px}
+      .video-card{height:220px}
+      .cta-row{flex-direction:column;align-items:stretch}
+      .cta-row .btn{width:100%}
+      .booking{flex-direction:column;align-items:stretch}
+      .booking aside{width:100%;order:2}
+      .booking form{order:1}
+      nav{flex-wrap:wrap;gap:8px}
+      .hero .headline{font-size:28px}
     }
   </style>
 </head>
@@ -118,11 +143,7 @@
       </div>
 
       <!-- Desktop links -->
-      <div class="nav-links" style="display:flex;gap:10px;align-items:center">
-        <a class="btn btn-ghost" href="/">Home</a>
-        <a class="btn btn-ghost" href="/portfolio.html">Portfolio</a>
-        <a class="btn btn-primary" href="#book">Book Your Shoot</a>
-      </div>
+      <!-- Desktop links removed so navigation only appears in mobile sidebar -->
 
       <!-- Hamburger (mobile) -->
       <button class="hamburger" aria-label="Open menu" onclick="openSidebar()">☰</button>
