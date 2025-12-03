@@ -37,6 +37,18 @@
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
     .video-card{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 10px 30px rgba(2,6,23,0.6);height:360px;max-height:60vh} 
+
+    /* Mobile sidebar (hidden on desktop) */
+    .hamburger{display:none;background:transparent;border:0;color:inherit;font-size:20px;padding:8px;border-radius:8px}
+    .mobile-sidebar{position:fixed;left:-320px;top:0;height:100%;width:320px;background:var(--card);z-index:10010;transition:left .28s ease;padding:20px;box-shadow:8px 0 30px rgba(2,6,23,0.6);overflow:auto}
+    .mobile-sidebar.open{left:0}
+    #sidebarOverlay{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);z-index:10005}
+    .mobile-sidebar .close{display:flex;justify-content:flex-end}
+    .mobile-sidebar .logo{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+    .mobile-sidebar a{display:block;padding:10px 6px;border-radius:8px;color:var(--muted)}
+    .mobile-sidebar a.primary{background:linear-gradient(90deg,var(--accent),#ffcf9f);color:#071021;padding:10px;border-radius:10px;font-weight:700}
+
+    
     .video-el{display:block;width:100%;height:100%;object-fit:cover}
 
     /* Info cards */
@@ -104,13 +116,32 @@
           <div style="font-size:12px;color:var(--muted);margin-top:2px">Pre‑Wedding Films</div>
         </div>
       </div>
-      <div style="display:flex;gap:10px;align-items:center">
+
+      <!-- Desktop links -->
+      <div class="nav-links" style="display:flex;gap:10px;align-items:center">
         <a class="btn btn-ghost" href="/">Home</a>
         <a class="btn btn-ghost" href="/portfolio.html">Portfolio</a>
         <a class="btn btn-primary" href="#book">Book Your Shoot</a>
       </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Open menu" onclick="openSidebar()">☰</button>
     </nav>
   </header>
+
+  <!-- Mobile sidebar + overlay -->
+  <div id="sidebarOverlay" onclick="closeSidebar()"></div>
+  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
+    <div class="close"><button onclick="closeSidebar()" aria-label="Close menu" style="background:transparent;border:0;color:var(--muted);font-size:18px">✕</button></div>
+    <div class="logo"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ffcf9f);display:flex;align-items:center;justify-content:center;color:#071021;font-weight:700">CC</div><div><div style="font-weight:700">CineCraft</div><div style="font-size:12px;color:var(--muted)">Pre‑Wedding Films</div></div></div>
+    <nav style="margin-top:6px;display:flex;flex-direction:column;gap:6px">
+      <a href="/">Home</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a class="primary" href="#book" onclick="closeSidebar()">Book Your Shoot</a>
+      <a href="https://wa.me/9016290344">Message on WhatsApp</a>
+      <a href="mailto:sujalbhatti6666@gmail.com">sujalbhatti6666@gmail.com</a>
+    </nav>
+  </aside>
 
   <main class="container">
     <section class="hero">
@@ -285,6 +316,34 @@
       l.style.display='flex';
       setTimeout(function(){ v.play().catch(()=>{}); },200);
     }
+
+    // Sidebar controls for mobile
+    function openSidebar(){
+      var sb = document.getElementById('mobileSidebar');
+      var ov = document.getElementById('sidebarOverlay');
+      if(!sb || !ov) return;
+      sb.classList.add('open');
+      sb.setAttribute('aria-hidden','false');
+      ov.style.display='block';
+      // trap focus to sidebar (simple)
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar(){
+      var sb = document.getElementById('mobileSidebar');
+      var ov = document.getElementById('sidebarOverlay');
+      if(!sb || !ov) return;
+      sb.classList.remove('open');
+      sb.setAttribute('aria-hidden','true');
+      ov.style.display='none';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        closeSidebar();
+        var lb = document.getElementById('lightbox'); if(lb) lb.style.display='none';
+      }
+    });
 
     document.getElementById('bookingForm').addEventListener('submit', function(e){
       e.preventDefault();
