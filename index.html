@@ -7,7 +7,64 @@
     <meta name="theme-color" content="#0B0B0B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CineCraft Videography - Premium Wedding Films</title>
+    
+    <!-- Primary Meta Tags -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <title>CineCraft Videography — Cinematic Wedding Films & Same-Day Reels | India</title>
+    <meta name="title" content="CineCraft Videography — Cinematic Wedding Films & Same-Day Reels | India">
+    <meta name="description" content="Luxury wedding videography using iPhone 16 Pro — cinematic highlight films, Instagram reels, and same-day delivery. Packages from ₹10,000. Book Sujal Bhatti.">
+    <meta name="keywords" content="wedding videography, cinematic wedding films, same-day wedding reels, Surat wedding videographer, Indian wedding videography">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cinecraft-videography.netlify.app/">
+    <meta property="og:title" content="CineCraft Videography — Cinematic Wedding Films & Same-Day Reels">
+    <meta property="og:description" content="Luxury wedding videography — highlights, reels, and same-day delivery. Packages from ₹10,000.">
+    <meta property="og:image" content="https://cinecraft-videography.netlify.app/images/showreel-thumbnail.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cinecraft-videography.netlify.app/">
+    <meta property="twitter:title" content="CineCraft Videography — Cinematic Wedding Films & Same-Day Reels">
+    <meta property="twitter:description" content="Luxury wedding videography — highlights, reels, and same-day delivery. Packages from ₹10,000.">
+    <meta property="twitter:image" content="https://cinecraft-videography.netlify.app/images/showreel-thumbnail.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cinecraft-videography.netlify.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "CineCraft Videography",
+      "image": "https://cinecraft-videography.netlify.app/images/logo.png",
+      "telephone": "+919016290344",
+      "email": "sujalbhatti6666@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Surat",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      },
+      "url": "https://cinecraft-videography.netlify.app/",
+      "priceRange": "₹10000-50000",
+      "sameAs": [
+        "https://www.instagram.com/cinecraft_videography"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -15,6 +72,8 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="manifest" href="/site.webmanifest">
     <script src="js/mobile-menu.js" defer></script>
@@ -45,23 +104,69 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="hero">
+        <!-- Video Background -->
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="heroVideo" class="video-js">
+                <source src="https://player.vimeo.com/external/123456789.hd.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
         <div class="film-grain"></div>
-        <div class="hero-content">
-            <h1>Cinematic Wedding Storytelling</h1>
-            <h2>Captured, Edited & Shared Instantly</h2>
-            <p class="hero-subtitle">Modern highlight films + real-time Instagram coverage crafted with artistic precision.</p>
-            <div class="cta-group">
-                <a href="#contact" class="cta-button primary">Book Your Wedding Coverage</a>
-                <a href="#portfolio" class="cta-button secondary">View Portfolio <i class="fas fa-arrow-right"></i></a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cinematic Wedding Films + Same-Day Reels</h1>
+                <p class="hero-subtitle">Luxury storytelling captured on iPhone 16 Pro — highlights delivered same day. <span class="highlight">Trusted by 100+ couples.</span></p>
+                
+                <div class="cta-group">
+                    <a href="#" class="cta-button primary showreel-trigger">
+                        <i class="fas fa-play-circle"></i> Watch Our Showreel
+                    </a>
+                    <a href="#booking" class="cta-button secondary">
+                        Book a Date <i class="fas fa-calendar-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="social-proof">
+                    <div class="testimonial-bubble">
+                        <p>"Absolutely loved our wedding film! Same-day reels had our friends going crazy!"</p>
+                        <div class="client-info">
+                            <span class="client-name">Priya & Rohan</span>
+                            <span class="wedding-date">October 2023</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+        
+        <!-- Sticky Mobile CTA -->
+        <div class="sticky-cta-mobile">
+            <a href="https://wa.me/919016290344?text=Hi%20CineCraft%2C%20I'd%20like%20to%20book%20a%20date" class="whatsapp-cta" aria-label="Book on WhatsApp">
+                <i class="fab fa-whatsapp"></i> Book Now
+                <span class="price-tag">From ₹10,000</span>
+            </a>
         </div>
     </section>
-
+    
+    <!-- Showreel Modal -->
+    <div id="showreelModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe id="showreelVideo" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-cta">
+                <p>Love what you see? Let's create something amazing for your wedding!</p>
+                <a href="#booking" class="cta-button primary">Book Your Date Now</a>
+            </div>
+        </div>
+    </div>
+    
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -235,6 +340,89 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Couples Say</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Hear from couples who've experienced our magic</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>Working with CineCraft was the best decision we made for our wedding. The team captured every special moment beautifully, and our same-day reel had all our guests talking!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel" class="author-img">
+                        <div class="author-info">
+                            <h4>Priya & Rohan</h4>
+                            <span>January 2024 Wedding</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>The Instagram package was perfect for our reception. The reels were ready the same night, and the quality was incredible. All our friends are still asking who our videographer was!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Sharma" class="author-img">
+                        <div class="author-info">
+                            <h4>Amit & Neha</h4>
+                            <span>March 2024 Reception</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>As someone who's camera-shy, I was nervous about our pre-wedding shoot. But the team made us feel so comfortable, and the final video exceeded all our expectations. Worth every penny!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ananya Gupta" class="author-img">
+                        <div class="author-info">
+                            <h4>Ananya & Raj</h4>
+                            <span>Pre-Wedding Shoot</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-cta">
+                <a href="#booking" class="cta-button primary">Book Your Date</a>
+                <a href="https://www.instagram.com/cinecraft_videography" target="_blank" class="cta-button secondary">
+                    <i class="fab fa-instagram"></i> See More on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
@@ -346,51 +534,259 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
         <div class="container">
             <div class="section-header">
                 <h2>Book Your Wedding Date</h2>
                 <div class="divider"></div>
-                <p class="contact-subtitle">We take limited bookings to ensure fastest delivery and premium quality.</p>
+                <p class="section-subtitle">Complete the form below to check our availability and receive a personalized quote.</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <ul>
-                        <li><i class="fas fa-user"></i> Sujal Bhatti</li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919016290344">+91 9016290344</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:sujalbhatti6666@gmail.com">sujalbhatti6666@gmail.com</a></li>
-                        <li><i class="fab fa-instagram"></i> <a href="https://instagram.com/cinecraft_videography" target="_blank">@cinecraft_videography</a></li>
-                    </ul>
+
+            <!-- Progress Bar -->
+            <div class="booking-progress">
+                <div class="progress-bar"></div>
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Package</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Date & Details</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Contact Info</div>
+                    </div>
                 </div>
-                <form class="contact-form" id="bookingForm" action="https://formspree.io/f/xkgleaag" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="booking-content">
+                <div class="booking-info">
+                    <h3>Why Choose Us?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> Same-day highlight reels</li>
+                        <li><i class="fas fa-check-circle"></i> Professional 4K footage</li>
+                        <li><i class="fas fa-check-circle"></i> Experienced team</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible payment options</li>
+                    </ul>
+                    <div class="contact-details">
+                        <h4>Need Help?</h4>
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919016290344">+91 9016290344</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:sujalbhatti6666@gmail.com">sujalbhatti6666@gmail.com</a></p>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xkgleaag" method="POST">
+                    <!-- Step 1: Package Selection -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Select Your Package</h3>
+                        <div class="package-options">
+                            <label class="package-option">
+                                <input type="radio" name="package" value="Complete Wedding Package" data-price="₹15,000" required>
+                                <div class="package-card">
+                                    <h4>Complete Wedding Package</h4>
+                                    <div class="price">₹15,000</div>
+                                    <ul>
+                                        <li>Full day coverage (8 hours)</li>
+                                        <li>Cinematic highlight film (5-7 mins)</li>
+                                        <li>Same-day Instagram reels (2-3)</li>
+                                        <li>All raw footage</li>
+                                    </ul>
+                                </div>
+                            </label>
+                            
+                            <label class="package-option">
+                                <input type="radio" name="package" value="Premium Instagram Package" data-price="₹10,000">
+                                <div class="package-card">
+                                    <h4>Premium Instagram Package</h4>
+                                    <div class="price">₹10,000</div>
+                                    <ul>
+                                        <li>4 hours of coverage</li>
+                                        <li>3-5 Instagram reels (same day)</li>
+                                        <li>30-second highlight clip</li>
+                                        <li>Social media optimization</li>
+                                    </ul>
+                                </div>
+                            </label>
+                            
+                            <label class="package-option">
+                                <input type="radio" name="package" value="Ultimate Wedding Combo" data-price="₹22,500">
+                                <div class="package-card">
+                                    <h4>Ultimate Wedding Combo</h4>
+                                    <div class="price">₹22,500</div>
+                                    <ul>
+                                        <li>Full day coverage (12 hours)</li>
+                                        <li>Cinematic film (8-10 mins)</li>
+                                        <li>5+ Instagram reels (same day)</li>
+                                        <li>Pre-wedding consultation</li>
+                                        <li>All raw footage + 4K delivery</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-next" data-next>Next: Date & Details</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+
+                    <!-- Step 2: Date & Details -->
+                    <div class="form-step" data-step="2">
+                        <h3>Your Wedding Details</h3>
+                        <div class="form-group">
+                            <label for="event-type">Event Type</label>
+                            <select id="event-type" name="event-type" required>
+                                <option value="">Select Event Type</option>
+                                <option value="Engagement">Engagement</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Reception">Reception</option>
+                                <option value="Pre-wedding">Pre-wedding Shoot</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="event-date">Event Date</label>
+                                <input type="date" id="event-date" name="event-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-location">Event Location</label>
+                                <input type="text" id="event-location" name="event-location" placeholder="City/Venue" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-details">Additional Details</label>
+                            <textarea id="event-details" name="event-details" rows="3" placeholder="Tell us about your event, special requests, etc."></textarea>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline btn-prev" data-prev>Back</button>
+                            <button type="button" class="btn btn-next" data-next>Next: Contact Info</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="date" id="wedding-date" name="wedding-date" required>
+
+                    <!-- Step 3: Contact Information -->
+                    <div class="form-step" data-step="3">
+                        <h3>Your Contact Information</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 " required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="how-heard">How did you hear about us?</label>
+                            <select id="how-heard" name="how-heard">
+                                <option value="">Select an option</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Google">Google Search</option>
+                                <option value="Friend">Friend/Family</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline btn-prev" data-prev>Back</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Booking Request
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <select id="service" name="service" required>
-                            <option value="">Select Service</option>
-                            <option value="Complete Wedding Package">Complete Wedding Package (₹15,000)</option>
-                            <option value="Premium Instagram Package">Premium Instagram Package (₹10,000)</option>
-                            <option value="Ultimate Wedding Combo">Ultimate Wedding Combo (₹22,500)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tell us about your wedding" rows="4"></textarea>
-                    </div>
-                    <div id="form-status" class="form-status"></div>
-                    <button type="submit" class="cta-button primary" id="submit-btn">Send Message</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Everything you need to know about our services</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How far in advance should we book your services?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend booking at least 3-6 months in advance, especially for peak wedding seasons (November-February). However, we sometimes have last-minute availability, so don't hesitate to reach out even if your date is coming up soon!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                    <div class="faq-question">
+                        <h3>What's included in your same-day reel service?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our same-day reel service includes 2-3 professionally edited Instagram reels (30-60 seconds each) delivered on the same day as your event. We'll capture all the key moments and have them ready for you to share with friends and family by the end of your event.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>Do you travel for destination weddings?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We love destination weddings. Travel expenses (flights, accommodation) will be added to the package cost. Contact us with your location, and we'll provide a customized quote.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="faq-question">
+                        <h3>How long does it take to receive our full wedding video?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard delivery time for the full wedding film is 4-6 weeks. We'll send you a highlight reel within 2 weeks, and the complete edited footage will follow. For pre-wedding shoots, delivery is typically 2-3 weeks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>What's your payment and cancellation policy?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We require a 30% deposit to secure your date, with the remaining balance due 7 days before your event. Cancellations made more than 30 days before the event receive a full refund. For cancellations within 30 days, the deposit is non-refundable but can be applied to a rescheduled date within 6 months.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="faq-question">
+                        <h3>Can we request specific songs for our wedding video?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We encourage you to share your favorite songs or any special music that's meaningful to you. We'll work with you to select the perfect tracks that fit the mood and style of your video. Just keep in mind that for public sharing, we'll need to use royalty-free or licensed music.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-cta">
+                <p>Still have questions? We're here to help!</p>
+                <a href="https://wa.me/919016290344" class="cta-button primary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -414,6 +810,7 @@
     </footer>
 
     <script src="js/mobile-menu.js"></script>
-    <script src="script.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/showreel.js"></script>
 </body>
 </html>
