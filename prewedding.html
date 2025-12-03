@@ -7,7 +7,7 @@
   <meta name="description" content="Cinematic pre‑wedding films, romantic short films and same‑day reels. Pre‑wedding packages, gallery, and booking — CineCraft Videography." />
   <meta property="og:title" content="CineCraft — Pre‑Wedding Films" />
   <meta property="og:description" content="Cinematic pre‑wedding films, romantic short films and same‑day reels. Packages starting at ₹X. Book your date." />
-  <meta property="og:image" content="https://cinecraft-videography.netlify.apphttps://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800" />
+  <meta property="og:image" content="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800" />
   <link rel="icon" href="/favicon.ico" />
   <style>
     /* Minimal, elegant styling — change colors to match your brand */
@@ -36,7 +36,7 @@
     .btn-primary{background:linear-gradient(90deg,var(--accent),#ffcf9f);color:#071021}
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-    .video-card{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .video-card{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 10px 30px rgba(2,6,23,0.6);height:360px;max-height:60vh} 
     .video-el{display:block;width:100%;height:100%;object-fit:cover}
 
     /* Info cards */
@@ -80,6 +80,17 @@
       .gallery{grid-template-columns:repeat(2,1fr)}
       .packages{grid-template-columns:1fr}
       .testimonials{grid-template-columns:1fr}
+
+      /* Mobile adjustments */
+      .container{padding:16px}
+      .video-card{height:220px}
+      .cta-row{flex-direction:column;align-items:stretch}
+      .cta-row .btn{width:100%}
+      .booking{flex-direction:column;align-items:stretch}
+      .booking aside{width:100%;order:2}
+      .booking form{order:1}
+      nav{flex-wrap:wrap;gap:8px}
+      .hero .headline{font-size:28px}
     }
   </style>
 </head>
@@ -292,7 +303,7 @@
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"CineCraft Videography",
-    "image":"https://cinecraft-videography.netlify.apphttps://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image":"https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800",
     "telephone":"+919016290344",
     "email":"sujalbhatti6666@gmail.com",
     "address": {"@type":"PostalAddress","addressLocality":"Your City","addressCountry":"IN"},
@@ -306,7 +317,7 @@
     "@type":"VideoObject",
     "name":"CineCraft Prewedding Showreel",
     "description":"Cinematic prewedding clips and same-day reels by CineCraft.",
-    "thumbnailUrl":"https://cinecraft-videography.netlify.apphttps://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "thumbnailUrl":"https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800",
     "uploadDate":"2025-01-01",
     "contentUrl":"https://cinecraft-videography.netlify.app/assets/prewedding-showreel.mp4",
     "embedUrl":"https://cinecraft-videography.netlify.app/prewedding.html"
